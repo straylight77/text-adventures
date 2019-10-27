@@ -1,0 +1,145 @@
+{
+  "rooms": {
+
+    "Engine Room": {
+      "desc": "Description of the room here.",
+      "exits": {
+        "east": "Lower Corridor"
+      },
+      "ground": [ "space suit" ] 
+    },
+
+    "Lower Corridor": {
+      "desc": "A long hallway.",
+      "exits": {
+        "west": "Engine Room",
+        "north": "Cargo Bay",
+        "east": "Upper Corridor",
+        "south": "Observation Deck"
+      },
+      "ground": [ "hydrospanner" ]
+    },
+
+    "Upper Corridor": {
+      "desc": "A long hallway.",
+      "exits": {
+        "north": "Sick Bay",
+        "east": "Bridge",
+        "west": "Lower Corridor"
+      },
+      "barriers": {
+        "east": "security door"
+      }
+    },
+
+    "Bridge": {
+      "desc": "You're on the main bridge of the ship.  A Large window gives a view out to the endless void of space surrounded by multiple workstations.",
+      "exits": {
+        "west": "Upper Corridor",
+        "south": "Ready Room"
+      },
+      "barriers": {
+        "west": "Security Door"
+      }
+    },
+
+    "Ready Room": {
+      "desc": "This is the captain's private ready room.  It contains a large desk that has a few drawers and a computer opposite a few chairs and a couch off to the side.",
+      "exits": {
+        "north": "Bridge"
+      },
+      "props": [ "desk" ]
+    },
+
+    "Sick Bay": {
+      "desc": "You see beds surrounded by various medical equipment.",
+      "ground": [ ],
+      "exits": {
+        "south": "Upper Corridor",
+        "east": "Storage Closet"
+      },
+      "barriers": {
+        "east": "closet door"
+      }
+    },
+
+    "Storage Closet": {
+      "desc": "A small room with several shelves holding various pieces of mostly useless equipment.",
+      "ground": [ "air tank" ],
+      "exits": {
+        "west": "Sick Bay"
+      },
+      "barriers": {
+        "west": "closet door"
+      }
+    },
+
+    "Observation Deck": {
+      "desc": "A combination of a lounge and a mess hall for the crew, the observation deck has a giant window, a large table and several comfortable chairs.",
+      "props": [ "body" ],
+      "exits": {
+        "north": "Lower Corridor"
+      }
+    },
+
+    "Cargo Bay": {
+      "desc": "Insert description of the room here.",
+      "exits": {
+        "south": "Lower Corridor"
+      }
+    }
+
+  },
+
+  "props": {
+    "closet door": {
+      "desc": "There's a door to the storage closet.",
+      "state": "closed",
+      "aliases": ["door"]
+    },
+    "security door": {
+      "desc": "A solid sliding metal door.",
+      "state": "locked",
+      "locked_with": "keycard",
+      "aliases": ["door"]
+    },
+    "body": {
+      "desc": "The body of an officer is slumped against a wall.",
+      "contains": [ "keycard" ],
+      "aliases": [ "body", "corpse", "officer" ]
+    },
+    "desk": {
+      "desc": "The captains desk.",
+      "contains": [ "launch code" ],
+      "aliases": [ "desk", "drawer" ]
+    }
+  },
+
+  "items": {
+    "keycard": {
+      "desc": "a keycard",
+      "ground_desc": "There's a security keycard here.",
+      "aliases": ["keycard", "card"]
+
+    },
+    "air tank": {
+      "desc": "a tank of air",
+      "ground_desc": "You see a cylindrical tank marked 'air' here.",
+      "aliases": ["tank"]
+    },
+    "launch code": {
+      "desc": "launch code",
+      "ground_desc": "You see a note with the ship's launch codes here.",
+      "aliases": ["note", "code"]
+    },
+    "hydrospanner": {
+      "desc": "a hydrospanner",
+      "ground_desc": "There's a hydrospanner here, a common tool to maintain and repair spacecraft.",
+      "aliases": [ "hydrospanner" ]
+    }
+
+  }
+
+
+}
+
