@@ -4,11 +4,14 @@ import json, textwrap, cmd
 
 SCREEN_WIDTH = 80
 
-rooms = { }  
+rooms = { }
 items = { }
 props = { }
-inventory = [ ] 
+inventory = [ ]
 location = 'Sick Bay'
+
+#this is a new line for this branch
+
 
 ##############################################################
 class Room:
@@ -18,7 +21,7 @@ class Room:
     self.desc = desc
     self.exits = exits
     self.ground = [ ]
-    self.props = [ ] 
+    self.props = [ ]
     self.barriers = { }
 
   # -------------------------------------------------------
@@ -28,7 +31,7 @@ class Room:
   # -------------------------------------------------------
   def remove_item(self, item_to_remove):
     pass
-  
+
   # -------------------------------------------------------
   def add_prop(self, prop_to_add):
     self.props.append(prop_to_add)
@@ -45,7 +48,7 @@ class Room:
         if b.state != "open":
           return (False, "Your way is blocked by %s" % (b))
         else:
-          return (True, self.exits[direction])  
+          return (True, self.exits[direction])
       else:
         return (True, self.exits[direction])
     else:
@@ -79,7 +82,7 @@ class Room:
     if len(self.barriers) > 0:
       for direction, b in self.barriers.items():
         str += " To the %s is a %s which is %s." % (direction, b.name, b.state)
-        
+
     print(str)
     print()
 
@@ -117,7 +120,7 @@ class Item:
 
   def __str__(self):
     return self.desc
-  
+
   def __repr__(self):
     return self.__str__()
 
@@ -153,7 +156,7 @@ class Prop:
       return "%s (%s)" % (self.name, self.state)
     else:
       return self.name
-  
+
   def __repr__(self):
     return self.__str__()
 
@@ -169,15 +172,15 @@ class TextAdventureCmd(cmd.Cmd):
     # -------------------------------------------------------
     def do_quit(self, arg):
         """Quit the game."""
-        return True 
-    
+        return True
+
     do_exit = do_quit
 
     # -------------------------------------------------------
     def do_look(self, arg):
       print()
       rooms[location].display()
-    
+
     # -------------------------------------------------------
     def do_go(self, arg):
       global location
@@ -197,7 +200,7 @@ class TextAdventureCmd(cmd.Cmd):
     # -------------------------------------------------------
     def do_east(self, arg):
       self.do_go("east")
-    
+
     # -------------------------------------------------------
     def do_south(self, arg):
       self.do_go("south")
@@ -216,7 +219,7 @@ class TextAdventureCmd(cmd.Cmd):
       if arg == "":
         print("Open what?")
         return
-      
+
       prop_to_open = arg.lower()
       p = rooms[location].get_prop_by_alias(prop_to_open)
 
@@ -360,5 +363,3 @@ if __name__ == '__main__':
     rooms[location].display()
     TextAdventureCmd().cmdloop()
     print('Thanks for playing!')
-
-
