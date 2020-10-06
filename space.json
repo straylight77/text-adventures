@@ -6,7 +6,7 @@
       "exits": {
         "east": "Lower Corridor"
       },
-      "ground": [ "space suit" ] 
+      "ground": [ "space suit" ]
     },
 
     "Lower Corridor": {
